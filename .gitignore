@@ -1,0 +1,9 @@
+# Release artifacts (attach these to GitHub Releases instead)
+*.zip
+*.unitypackage
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

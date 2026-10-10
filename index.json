@@ -1,0 +1,29 @@
+{
+  "name": "Nknighta VPM Listing",
+  "id": "me.nknighta.vpm",
+  "author": "Nknight AMAMIYA",
+  "url": "https://raw.githubusercontent.com/nk4dev/VRCbrowser/main/index.json",
+  "packages": {
+    "me.nknighta.libs.vrcbrowser": {
+      "versions": {
+        "1.0.0": {
+          "name": "me.nknighta.libs.vrcbrowser",
+          "displayName": "VRCbrowser",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "In-world page viewer for VRChat worlds. Loads text, Markdown, simple HTML pages and images from a URL and shows them on a synced canvas.",
+          "author": {
+            "name": "Nknight AMAMIYA",
+            "url": "https://github.com/nk4dev"
+          },
+          "license": "MIT",
+          "url": "https://github.com/nk4dev/VRCbrowser/releases/download/1.0.0/me.nknighta.libs.vrcbrowser-1.0.0.zip",
+          "changelogUrl": "https://github.com/nk4dev/VRCbrowser/releases",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.5.0"
+          }
+        }
+      }
+    }
+  }
+}
