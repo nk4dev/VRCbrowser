@@ -111,13 +111,13 @@ VRChat ワールド用のインワールド・ページビューアです。URL 
 
 ### 導入
 
-### VCC / ALCOM(VPM)
+#### VCC / ALCOM(VPM)
 
 1. 次の URL をリポジトリとして追加します。
    `https://raw.githubusercontent.com/nk4dev/VRCbrowser/main/index.json`
 2. プロジェクトの管理画面で **VRCbrowser** を追加します。
 
-### unitypackage
+#### unitypackage
 
 [Releases](https://github.com/nk4dev/VRCbrowser/releases) から `VRCbrowser-<version>.unitypackage` をダウンロードしてインポートします。
 
