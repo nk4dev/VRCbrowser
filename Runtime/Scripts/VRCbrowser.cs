@@ -32,14 +32,20 @@ public class VRCbrowser : UdonSharpBehaviour
 
     [Header("Pages")]
     [SerializeField] private VRCUrl homeUrl = VRCUrl.Empty;
+    [SerializeField, TextArea(5, 20)] private string welcomePage = "";
+
+    [Header("Bookmarks")]
+    [Tooltip("Sites listed in the menu, filled from the top (up to 8). Leave empty to hide the menu.")]
     [SerializeField] private VRCUrl[] bookmarkUrls = null;
+    [Tooltip("Menu label for the bookmark at the same index. If empty, the URL is shown.")]
     [SerializeField] private string[] bookmarkLabels = null;
+
+    [Header("Bookmark Menu UI")]
     [SerializeField] private GameObject[] bookmarkButtons = null;
     [SerializeField] private Text[] bookmarkButtonLabels = null;
     [SerializeField] private GameObject menuButton = null; // opens the list of frequently used sites
     [SerializeField] private GameObject menuPanel = null;
     [SerializeField] private float menuRowHeight = 58f;
-    [SerializeField, TextArea(5, 20)] private string welcomePage = "";
 
     [Header("Appearance")]
     [SerializeField] private int baseFontSize = 30; // UI units for a 16px CSS font; must match the block Text components
