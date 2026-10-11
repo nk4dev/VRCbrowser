@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: VRCbrowserJs
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 68de60bb37b36ff04a8dee4266715c0f, type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: a53457fe8b3f6b964ad8bf0e496877a2, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 938acf12ef7ad2b6c964364a0b346981, type: 3}

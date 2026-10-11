@@ -8,6 +8,7 @@ An in-world page viewer for VRChat worlds. Enter a URL and it shows text, Markdo
 
 - Shows text, Markdown, JSON, HTML and images (`.png` / `.jpg`)
 - HTML supports a subset of in-page CSS: text styling, margins and padding, centred or narrowed columns, lists, custom properties and `@media` (see below)
+- Pages in Shift_JIS or EUC-JP (declared with `charset=`) are decoded, and `<frameset>` pages are shown as one document
 - The current URL is synced to all players
 - Back / Home / Reload buttons and a "frequently used sites" menu (up to 8 entries)
 - A small JavaScript runtime for inline `<script>` elements (see below)
@@ -39,6 +40,7 @@ Download `VRCbrowser-<version>.unitypackage` from [Releases](https://github.com/
 |---|---|
 | Pages | **Home Url**: page opened by the Home button and on start. If empty, the Welcome Page is shown. **Welcome Page**: text (Markdown) shown when no URL is set |
 | Bookmarks | Sites for the "frequently used sites" menu, up to 8. Each row has a label and a URL; use **Add Bookmark**, ▲ / ▼ and ✕ to add, reorder and remove. If the label is empty the URL is shown |
+| Frames | **Frame Urls**: pages a `<frameset>` may load. A frame is shown only when its URL is listed here, in the bookmarks or as the Home Url; other frames are listed by address |
 | Scripts | The `JsEngine` that runs inline scripts (see below) |
 | Appearance | Maximum image size, font size, padding and plain text color |
 | Limits | Limits on lines, block length and HTML size |
@@ -118,6 +120,7 @@ VRChat ワールド用のインワールド・ページビューアです。URL 
 
 - テキスト、Markdown、JSON、HTML、画像(`.png` / `.jpg`)を表示
 - HTML はページ内に書かれた CSS の一部に対応(文字の装飾、余白、中央寄せや幅を絞った段組み、リスト、カスタムプロパティ、`@media`。詳細は下記)
+- Shift_JIS / EUC-JP のページ(`charset=` の指定があるもの)を文字化けせずに表示。`<frameset>` のページは 1 つの文書としてまとめて表示
 - 表示中の URL を全員に同期
 - 戻る / ホーム / 更新ボタン、「よく使うサイト」メニュー(最大 8 件)
 - ページ内の `<script>` を実行する簡易 JavaScript ランタイム(下記)
@@ -149,6 +152,7 @@ VRChat ワールド用のインワールド・ページビューアです。URL 
 |---|---|
 | Pages | **Home Url**:ホームボタンと起動時に開くページ。空なら Welcome Page を表示。**Welcome Page**:URL 未指定のときに表示する文章(Markdown) |
 | Bookmarks | 「よく使うサイト」メニューに並べるサイト(最大 8 件)。1 件ごとに表示名と URL を入力し、**Add Bookmark**、▲ / ▼、✕ で追加・並べ替え・削除します。表示名が空なら URL を表示 |
+| Frames | **Frame Urls**:`<frameset>` のページが読み込めるフレームの URL。ここ、ブックマーク、Home Url のいずれかに登録された URL のフレームだけを表示し、それ以外は URL の一覧として表示します |
 | Scripts | ページ内のスクリプトを実行する `JsEngine`(下記) |
 | Appearance | 画像の最大サイズ、文字サイズ、余白、プレーンテキストの文字色 |
 | Limits | 読み込む行数、ブロックの長さ、HTML サイズの上限 |

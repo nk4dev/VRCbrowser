@@ -33,7 +33,9 @@ public class VRCbrowser : UdonSharpBehaviour
     [SerializeField] private Vector2 imageMaxSize = new Vector2(1500f, 800f);
 
     // Pages
-    [SerializeField] private VRCUrl homeUrl = VRCUrl.Empty;
+    // not VRCUrl.Empty: in the editor every component would then share that one object, and a Home Url typed on a
+    // prefab instance would change the shared object instead of being saved as an override
+    [SerializeField] private VRCUrl homeUrl = null;
     [SerializeField, TextArea(5, 20)] private string welcomePage = "";
 
     // Bookmarks
