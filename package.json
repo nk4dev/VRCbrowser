@@ -1,7 +1,7 @@
 {
   "name": "me.nknighta.libs.vrcbrowser",
   "displayName": "VRCbrowser",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "unity": "2022.3",
   "description": "In-world page viewer for VRChat worlds. Loads text, Markdown, simple HTML pages and images from a URL and shows them on a synced canvas.",
   "author": {
@@ -9,7 +9,7 @@
     "url": "https://github.com/nk4dev"
   },
   "license": "MIT",
-  "url": "https://github.com/nk4dev/VRCbrowser/releases/download/v0.1.1/me.nknighta.libs.vrcbrowser-0.1.1.zip",
+  "url": "https://github.com/nk4dev/VRCbrowser/releases/download/v0.1.2/me.nknighta.libs.vrcbrowser-0.1.2.zip",
   "changelogUrl": "https://github.com/nk4dev/VRCbrowser/releases",
   "documentationUrl": "https://apps.nknighta.me/VRCbrowser/docs/",
   "vpmDependencies": {

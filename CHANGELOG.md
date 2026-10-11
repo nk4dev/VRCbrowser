@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Added a documentation site and an "Add to VCC" page, linked from the README and from `documentationUrl` in `package.json`.
+- The VPM listing is now named "nk4dev's VPM repo".
+- No changes to the scripts or the prefab.
+
 ## 0.1.1
 
 - Fixed: a Home Url typed on a prefab instance in the scene was not saved.
