@@ -153,7 +153,7 @@ TEMPLATE = """<!DOCTYPE html>
 <meta property="og:url" content="{url}">
 <meta property="og:locale" content="{locale}">
 <meta property="og:locale:alternate" content="{alt_locale}">
-<meta property="og:image" content="{site}og.png">
+<meta property="og:image" content="{site}og-image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -161,7 +161,7 @@ TEMPLATE = """<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
-<meta name="twitter:image" content="{site}og.png">
+<meta name="twitter:image" content="{site}og-image.png">
 <meta name="theme-color" content="#2463eb">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="docs.css">
