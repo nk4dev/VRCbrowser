@@ -23,7 +23,8 @@ An in-world page viewer for VRChat worlds. Enter a URL and it shows text, Markdo
 
 **VCC / ALCOM (VPM)**
 
-1. Add this URL as a repository:
+1. Open **[Add to VCC](https://apps.nknighta.me/VRCbrowser/install.html)** and press the button; VCC or ALCOM opens and asks to add the repository.
+   To add it by hand instead, use this URL as a repository:
    `https://raw.githubusercontent.com/nk4dev/VRCbrowser/main/index.json`
 2. Add **VRCbrowser** to your project.
 
@@ -135,7 +136,8 @@ VRChat ワールド用のインワールド・ページビューアです。URL 
 
 #### VCC / ALCOM(VPM)
 
-1. 次の URL をリポジトリとして追加します。
+1. **[VCC に追加](https://apps.nknighta.me/VRCbrowser/install.html)** のページを開いてボタンを押すと、VCC または ALCOM が開き、リポジトリの追加を確認する画面が出ます。
+   手動で追加する場合は、次の URL をリポジトリとして追加します。
    `https://raw.githubusercontent.com/nk4dev/VRCbrowser/main/index.json`
 2. プロジェクトの管理画面で **VRCbrowser** を追加します。
 
