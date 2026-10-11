@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>JavaScript</title>
+<style>
+body { background: #1a202c; color: #e2e8f0; max-width: 700px; margin: 0 auto; }
+h1 { color: #f6ad55; text-align: center; }
+h2 { color: #f6ad55; font-size: 20px; margin-top: 26px; }
+#clock { font-size: 44px; font-weight: bold; text-align: center; color: #68d391; margin: 8px 0; }
+#date { text-align: center; color: #a0aec0; margin-top: 0; }
+.box { background: #2d3748; padding: 10px 20px; }
+.hot { color: #fc8181; }
+pre { color: #90cdf4; }
+</style>
+</head>
+<body>
+<h1>JavaScript</h1>
+<p>ページ内の script 要素を、Udon 上の小さな JavaScript ランタイムで実行しています。スクリプトは各プレイヤーの手元で動きます。</p>
+
+<h2>時計(setInterval)</h2>
+<p id="clock">--:--:--</p>
+<p id="date"></p>
+
+<h2>カウンター(DOM の書き換え)</h2>
+<div class="box">このページを開いてから <b id="count">0</b> 秒たちました。<span id="msg"></span></div>
+
+<h2>ループで作るリスト</h2>
+<ul id="primes"></ul>
+
+<h2>九九(document.write)</h2>
+<pre><script>
+for (var i = 1; i <= 9; i++) {
+  var row = "";
+  for (var j = 1; j <= 9; j++) {
+    row += String(i * j).padStart(3, " ");
+  }
+  document.write(row + "\n");
+}
+</script></pre>
+
+<script>
+function two(n) { return String(n).padStart(2, "0"); }
+
+var days = ["日", "月", "火", "水", "木", "金", "土"];
+var seconds = 0;
+
+function tick() {
+  var now = new Date();
+  document.getElementById("clock").textContent = two(now.getHours()) + ":" + two(now.getMinutes()) + ":" + two(now.getSeconds());
+  document.getElementById("date").textContent = now.getFullYear() + "年" + (now.getMonth() + 1) + "月" + now.getDate() + "日(" + days[now.getDay()] + ")";
+  document.getElementById("count").textContent = seconds;
+  if (seconds == 10) {
+    var msg = document.getElementById("msg");
+    msg.textContent = " 10 秒を超えました。";
+    msg.className = "hot";
+  }
+  seconds++;
+}
+
+var primes = [];
+for (var n = 2; primes.length < 12; n++) {
+  var isPrime = true;
+  for (var d = 2; d * d <= n; d++) {
+    if (n % d == 0) { isPrime = false; break; }
+  }
+  if (isPrime) primes.push(n);
+}
+var total = primes.reduce(function (a, b) { return a + b; }, 0);
+document.getElementById("primes").innerHTML =
+  "<li>最初の 12 個の素数: " + primes.join(", ") + "</li>" +
+  "<li>その合計: " + total + "</li>" +
+  "<li>2 乗: " + primes.slice(0, 6).map(function (p) { return p * p; }).join(", ") + "</li>";
+
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>

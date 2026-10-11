@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>VRCbrowser デモ</title>
+<style>
+:root { --accent: #2b6cb0; --ink: #1a202c; --soft: #edf2f7; }
+body { background: #f7fafc; color: var(--ink); max-width: 720px; margin: 0 auto; line-height: 1.6; }
+h1 { color: var(--accent); text-align: center; margin-bottom: 4px; }
+.lead { text-align: center; color: #4a5568; margin-top: 0; }
+h2 { color: var(--accent); font-size: 20px; margin-top: 28px; }
+.card { background: var(--soft); padding: 12px 20px; margin: 12px 0; }
+.card b { color: var(--accent); }
+.note { background: #fefcbf; padding: 10px 20px; font-size: 14px; }
+.foot { color: #718096; font-size: 13px; text-align: center; margin-top: 28px; }
+</style>
+</head>
+<body>
+<h1>VRCbrowser デモワールド</h1>
+<p class="lead">VRChat ワールドの中で Web ページを表示するビューアです</p>
+
+<h2>デモページ</h2>
+<p>「よく使うサイト」メニューから開けます。</p>
+<div class="card"><b>文字と CSS</b><br>色、大きさ、行間、中央寄せの段組み、背景ボックス、カスタムプロパティ、@media</div>
+<div class="card"><b>リストと要素</b><br>入れ子のリスト、番号の種類、引用、ルビ、フォーム部品、文字参照</div>
+<div class="card"><b>JavaScript</b><br>時計、DOM の書き換え、ループで作る表</div>
+<div class="card"><b>Markdown</b><br>HTML ではないテキストは Markdown として表示します</div>
+<div class="card"><b>画像</b><br>.png / .jpg の URL は画像として表示します</div>
+
+<h2>操作</h2>
+<ul>
+<li><b>URL 欄</b> … 好きな URL を入力して開きます</li>
+<li><b>戻る / ホーム / 更新</b> … 履歴を戻る、このページへ戻る、読み込み直す</li>
+<li>表示中のページは、インスタンスにいる全員に同期されます</li>
+</ul>
+
+<p class="note">ページ内のリンクは開けません(Udon は実行時に URL を作れないため)。読み込みは約 5 秒に 1 回までです。</p>
+<p class="foot">VRCbrowser &mdash; github.com/nk4dev/VRCbrowser</p>
+</body>
+</html>

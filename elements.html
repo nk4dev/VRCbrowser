@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>リストと要素</title>
+<style>
+body { background: #f0f4f8; color: #1a202c; max-width: 700px; margin: 0 auto; }
+h1 { color: #2c7a7b; text-align: center; }
+h2 { color: #2c7a7b; font-size: 20px; margin-top: 26px; }
+blockquote { background: #e6fffa; padding: 10px 18px; color: #234e52; }
+.roman { list-style-type: upper-roman; }
+.plain { list-style: none; padding-left: 0; }
+pre { background: #2d3748; color: #f7fafc; padding: 10px 16px; }
+</style>
+</head>
+<body>
+<h1>リストと要素</h1>
+
+<h2>箇条書き</h2>
+<ul>
+<li>一段目
+  <ul>
+  <li>二段目
+    <ul><li>三段目</li></ul>
+  </li>
+  </ul>
+</li>
+<li>一段目に戻る</li>
+</ul>
+
+<h2>番号付き</h2>
+<ol><li>decimal</li><li>ふつうの番号</li></ol>
+<ol class="roman"><li>upper-roman</li><li>ローマ数字</li><li>三つ目</li></ol>
+<ol type="a" start="3"><li>type="a" start="3"</li><li>c から始まります</li></ol>
+<ul class="plain"><li>list-style: none</li><li>記号のないリスト</li></ul>
+
+<h2>定義リストと引用</h2>
+<dl>
+<dt>Udon</dt><dd>VRChat ワールド用のスクリプト実行環境</dd>
+<dt>UdonSharp</dt><dd>C# で Udon のプログラムを書くためのコンパイラ</dd>
+</dl>
+<blockquote>blockquote は左右に字下げされます。背景色も付けられます。</blockquote>
+<p>文中の引用は <q>q 要素</q> で、引用符が付きます。</p>
+
+<h2>ルビと折りたたみ</h2>
+<p><ruby>漢字<rp>(</rp><rt>かんじ</rt><rp>)</rp></ruby>の読みは括弧で表示します。</p>
+<details open><summary>details / summary</summary>折りたたみの中身は、開いた状態で表示します。</details>
+
+<h2>フォーム部品(表示のみ)</h2>
+<form>
+<p><input type="text" placeholder="名前"> <input type="text" value="入力済み"></p>
+<p><input type="checkbox" checked> チェック済み <input type="checkbox"> 未チェック <input type="radio" checked> 選択 <input type="radio"> 未選択</p>
+<p><input type="submit" value="送信する"> <button type="button">ボタン</button></p>
+</form>
+
+<h2>文字参照</h2>
+<p>&copy; &reg; &trade; &mdash; &hellip; &laquo;&raquo; &ldquo;&rdquo; &euro; &yen; &pound; &deg; &plusmn; &times; &divide; &larr;&uarr;&rarr;&darr; &hearts; &alpha;&beta;&pi;</p>
+<p>数値参照: &#12354;&#12356;&#12358; (10 進) / &#x3042;&#x3044;&#x3046; (16 進) / &lt;tag&gt; &amp;amp;</p>
+
+<h2>整形済みテキスト</h2>
+<pre>for (int i = 0; i &lt; 3; i++)
+{
+    Debug.Log(i);
+}</pre>
+<hr>
+<p><font size="5" color="#c05621">font size="5"</font> と <font size="1">font size="1"</font> のような古い書き方にも対応します。</p>
+</body>
+</html>

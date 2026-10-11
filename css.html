@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>文字と CSS</title>
+<style>
+:root { --accent: hsl(265, 55%, 45%); --paper: #fffdf7; }
+body { background: var(--paper); color: #222; max-width: 700px; margin: 0 auto; }
+h1 { color: var(--accent); text-transform: uppercase; text-align: center; }
+h2 { color: var(--accent); font-size: 20px; margin-top: 26px; }
+.red { color: #c53030; } .green { color: seagreen; } .blue { color: rgb(43, 108, 176); } .hsl { color: hsl(30, 90%, 45%); }
+.small { font-size: 12px; } .large { font-size: 24px; } .huge { font: bold 34px/1.2 sans-serif; }
+.tight { line-height: 1.1; } .loose { line-height: 2.2; }
+.center { text-align: center; } .right { text-align: right; }
+.caps { text-transform: capitalize; }
+.indent { text-indent: 2em; }
+.box { background: #e9d8fd; padding: 12px 24px; margin: 10px 0; }
+.box .inner { background: #faf5ff; padding: 8px 16px; margin: 8px 20px; }
+.narrow { max-width: 360px; margin: 10px auto; background: #c6f6d5; padding: 10px 16px; }
+.left60 { margin-left: 60px; background: #bee3f8; padding: 8px 16px; }
+.pre { white-space: pre; color: #2d3748; }
+.wide { color: #c53030; }
+@media (min-width: 600px) { .wide { color: seagreen; } }
+@media (max-width: 300px) { .wide { color: #c53030; font-weight: bold; } }
+.hidden { display: none; }
+</style>
+</head>
+<body>
+<h1>text and css</h1>
+
+<h2>色</h2>
+<p><span class="red">16 進 #c53030</span> / <span class="green">色名 seagreen</span> / <span class="blue">rgb(43, 108, 176)</span> / <span class="hsl">hsl(30, 90%, 45%)</span></p>
+<p>見出しの色は <b>var(--accent)</b> で指定しています。</p>
+
+<h2>大きさと太さ</h2>
+<p><span class="small">12px</span> 16px <span class="large">24px</span> <span class="huge">font: bold 34px</span></p>
+<p><b>太字</b> <i>斜体</i> <b><i>太字の斜体</i></b> <small>small</small> <big>big</big></p>
+
+<h2>行間</h2>
+<p class="tight">line-height: 1.1 の段落です。行と行の間が詰まって表示されます。長い文章を入れて折り返しを確認します。もう一文足して二行以上にします。</p>
+<p class="loose">line-height: 2.2 の段落です。行と行の間が広く表示されます。長い文章を入れて折り返しを確認します。もう一文足して二行以上にします。</p>
+
+<h2>揃えと変形</h2>
+<p class="center">text-align: center</p>
+<p class="right">text-align: right</p>
+<p class="caps">text-transform: capitalize makes every word start big</p>
+<p class="indent">text-indent: 2em の段落は、最初の行だけ二文字ぶん下がります。</p>
+<p class="pre">white-space: pre は    空白を    そのまま    残します</p>
+
+<h2>ボックス</h2>
+<div class="box">背景色と padding のあるボックス
+<div class="inner">入れ子のボックス(margin と padding で内側に寄ります)</div>
+</div>
+<div class="narrow">max-width: 360px と margin: auto で中央に置いた細いボックス</div>
+<div class="left60">margin-left: 60px のボックス</div>
+
+<h2>@media と非表示</h2>
+<p class="wide">この行は、ページ幅が 600px 以上なら緑、そうでなければ赤で表示されます。</p>
+<p class="hidden">display: none なので、この行は見えません。</p>
+<p>この上に display: none の段落が 1 つ隠れています。</p>
+</body>
+</html>
