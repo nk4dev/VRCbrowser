@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VRCbrowser Documentation</title>
+<meta name="description" content="Official documentation for VRCbrowser, an in-world page viewer for VRChat worlds: installation, usage, and the supported HTML, CSS and JavaScript.">
+<link rel="canonical" href="https://apps.nknighta.me/VRCbrowser/docs/en.html">
+<link rel="alternate" hreflang="ja" href="https://apps.nknighta.me/VRCbrowser/docs/">
+<link rel="alternate" hreflang="en" href="https://apps.nknighta.me/VRCbrowser/docs/en.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VRCbrowser">
+<meta property="og:title" content="VRCbrowser Documentation">
+<meta property="og:description" content="Official documentation for VRCbrowser, an in-world page viewer for VRChat worlds: installation, usage, and the supported HTML, CSS and JavaScript.">
+<meta property="og:url" content="https://apps.nknighta.me/VRCbrowser/docs/en.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:image" content="https://apps.nknighta.me/VRCbrowser/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VRCbrowser — an in-world page viewer for VRChat worlds">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VRCbrowser Documentation">
+<meta name="twitter:description" content="Official documentation for VRCbrowser, an in-world page viewer for VRChat worlds: installation, usage, and the supported HTML, CSS and JavaScript.">
+<meta name="twitter:image" content="https://apps.nknighta.me/VRCbrowser/og.png">
+<meta name="theme-color" content="#2463eb">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="https://apps.nknighta.me/VRCbrowser/docs/en.html">VRCbrowser</a>
+  <nav class="links">
+    <a href="../install.html">Add to VCC</a>
+    <a href="https://github.com/nk4dev/VRCbrowser">GitHub</a>
+    <a href="./" hreflang="ja">日本語</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="toc">
+  <h2>Contents</h2>
+  <ul>
+<li class="l2"><a href="#s1">Features</a></li>
+<li class="l2"><a href="#s2">Requirements</a></li>
+<li class="l2"><a href="#s3">Installation</a></li>
+<li class="l2"><a href="#s4">Usage</a></li>
+<li class="l2"><a href="#s5">HTML and CSS</a></li>
+<li class="l2"><a href="#s6">JavaScript</a></li>
+<li class="l2"><a href="#s7">Limitations</a></li>
+<li class="l2"><a href="#s8">License</a></li>
+  </ul>
+</aside>
+<main>
+  <h1>VRCbrowser Documentation</h1>
+  <p class="lead">An in-world page viewer for VRChat worlds. Enter a URL and it shows text, Markdown, simple HTML or an image on a canvas.</p>
+  <p><a class="button" href="../install.html">Add to VCC</a></p>
+<h2 id="s1">Features</h2>
+<ul>
+<li>Shows text, Markdown, JSON, HTML and images (<code>.png</code> / <code>.jpg</code>)</li>
+<li>HTML supports a subset of in-page CSS: text styling, margins and padding, centred or narrowed columns, lists, custom properties and <code>@media</code> (see below)</li>
+<li>Pages in Shift_JIS or EUC-JP (declared with <code>charset=</code>) are decoded, and <code>&lt;frameset&gt;</code> pages are shown as one document</li>
+<li>The current URL is synced to all players</li>
+<li>Back / Home / Reload buttons and a "frequently used sites" menu (up to 8 entries)</li>
+<li>A small JavaScript runtime for inline <code>&lt;script&gt;</code> elements (see below)</li>
+<li>Two UdonSharp scripts, one prefab and a custom inspector, nothing else</li>
+</ul>
+<h2 id="s2">Requirements</h2>
+<ul>
+<li>Unity 2022.3</li>
+<li>VRChat SDK - Worlds 3.5.0 or later (tested on 3.10.5)</li>
+</ul>
+<h2 id="s3">Installation</h2>
+<p><strong>VCC / ALCOM (VPM)</strong></p>
+<ol>
+<li>Open <strong><a href="https://apps.nknighta.me/VRCbrowser/install.html">Add to VCC</a></strong> and press the button; VCC or ALCOM opens and asks to add the repository.<br>To add it by hand instead, use this URL as a repository:<br><code>https://raw.githubusercontent.com/nk4dev/VRCbrowser/main/index.json</code></li>
+<li>Add <strong>VRCbrowser</strong> to your project.</li>
+</ol>
+<p><strong>unitypackage</strong></p>
+<p>Download <code>VRCbrowser-&lt;version&gt;.unitypackage</code> from <a href="https://github.com/nk4dev/VRCbrowser/releases">Releases</a> and import it.</p>
+<h2 id="s4">Usage</h2>
+<ol>
+<li>Place <code>Packages/VRCbrowser/Runtime/Prefabs/VRCbrowser.prefab</code> in your scene.</li>
+<li>Configure the <code>VRCbrowser</code> component in the inspector.</li>
+</ol>
+<div class="table"><table><thead><tr><th>Section</th><th>Description</th></tr></thead><tbody>
+<tr><td>Pages</td><td><strong>Home Url</strong>: page opened by the Home button and on start. If empty, the Welcome Page is shown. <strong>Welcome Page</strong>: text (Markdown) shown when no URL is set</td></tr>
+<tr><td>Bookmarks</td><td>Sites for the "frequently used sites" menu, up to 8. Each row has a label and a URL; use <strong>Add Bookmark</strong>, ▲ / ▼ and ✕ to add, reorder and remove. If the label is empty the URL is shown</td></tr>
+<tr><td>Frames</td><td><strong>Frame Urls</strong>: pages a <code>&lt;frameset&gt;</code> may load. A frame is shown only when its URL is listed here, in the bookmarks or as the Home Url; other frames are listed by address</td></tr>
+<tr><td>Scripts</td><td>The <code>JsEngine</code> that runs inline scripts (see below)</td></tr>
+<tr><td>Appearance</td><td>Maximum image size, font size, padding and plain text color</td></tr>
+<tr><td>Limits</td><td>Limits on lines, block length and HTML size</td></tr>
+<tr><td>UI References</td><td>Objects inside the prefab. Only change these if you rebuild its UI</td></tr>
+</tbody></table></div>
+<p>The prefab ships without bookmarks, and the menu button stays hidden until you add one.</p>
+<p>The button labels and the default Welcome Page are in Japanese; edit the prefab to change them.</p>
+<h2 id="s5">HTML and CSS</h2>
+<p>A page is drawn as a vertical flow of text blocks. Styles come from <code>&lt;style&gt;</code> elements and <code>style</code> attributes.</p>
+<div class="table"><table><thead><tr><th></th><th>Supported</th></tr></thead><tbody>
+<tr><td>Text</td><td><code>color</code>, <code>font-size</code>, <code>font-weight</code>, <code>font-style</code>, <code>font</code> (shorthand), <code>line-height</code>, <code>text-align</code>, <code>text-transform</code>, <code>text-indent</code>, <code>white-space</code></td></tr>
+<tr><td>Box</td><td><code>background</code> / <code>background-color</code> (solid colors), <code>margin</code>, <code>padding</code> (all sides and the <code>-inline</code> / <code>-block</code> forms), <code>max-width</code>, <code>width</code> together with an <code>auto</code> margin</td></tr>
+<tr><td>Lists</td><td><code>list-style</code> / <code>list-style-type</code>: <code>disc</code>, <code>circle</code>, <code>square</code>, <code>decimal</code>, <code>decimal-leading-zero</code>, <code>lower-</code> / <code>upper-alpha</code>, <code>lower-</code> / <code>upper-roman</code>, <code>none</code></td></tr>
+<tr><td>Visibility</td><td><code>display</code>, <code>visibility</code>, <code>opacity: 0</code>, the <code>hidden</code> attribute</td></tr>
+<tr><td>Values</td><td><code>px</code>, <code>em</code>, <code>rem</code>, <code>%</code>, <code>pt</code>, <code>vw</code>, <code>ch</code>; hex, <code>rgb()</code>, <code>hsl()</code> and named colors; <code>var(--name, fallback)</code> for custom properties set on <code>:root</code>, <code>html</code> or <code>body</code></td></tr>
+<tr><td>Selectors</td><td>tag, <code>.class</code>, <code>#id</code>, compounds, descendant combinations, <code>:root</code>, <code>:link</code>. Rules with other pseudo-classes or attribute selectors are skipped</td></tr>
+<tr><td>At-rules</td><td><code>@media</code> with <code>screen</code>, <code>all</code>, <code>min-width</code> and <code>max-width</code> (the page is about 800 CSS px wide with the default prefab); <code>@supports</code> and <code>@layer</code> blocks are read as plain rules</td></tr>
+</tbody></table></div>
+<p>Besides the usual headings, paragraphs, lists and inline text elements, these get their own treatment: <code>blockquote</code>, <code>dl</code> / <code>dd</code> and <code>figure</code> are indented; <code>ol</code> honours <code>start</code> and <code>type</code>, <code>li</code> honours <code>value</code>; <code>q</code> adds quotation marks; <code>ruby</code> shows the reading in parentheses; <code>details</code> / <code>summary</code>, <code>dialog open</code>, <code>caption</code>, <code>big</code>, <code>font size</code> and named and numeric character entities are handled; form controls (<code>input</code>, <code>button</code>) are drawn as text such as <code>[name]</code> or <code>☑</code> and cannot be used.</p>
+<h2 id="s6">JavaScript</h2>
+<p>Inline <code>&lt;script&gt;</code> elements are run by <code>JsEngine</code> (<code>VRCbrowserJs</code>) inside the prefab. It is a subset meant for pages you write yourself; scripts of ordinary websites mostly fail (the page still renders the same). Scripts run locally for each player; only the URL is synced.</p>
+<p>Supported:</p>
+<ul>
+<li><code>var</code> / <code>let</code> / <code>const</code>, functions, closures, arrow functions, <code>if</code> / <code>for</code> / <code>for...of</code> / <code>for...in</code> / <code>while</code> / <code>do...while</code> / <code>switch</code>, template literals</li>
+<li>Common array, object and string methods, <code>Math</code>, <code>JSON</code>, <code>Date</code>, <code>console.log</code>, <code>parseInt</code> / <code>parseFloat</code></li>
+<li><code>document.write</code>, <code>getElementById</code>, <code>querySelector(All)</code> (<code>tag</code> / <code>#id</code> / <code>.class</code> / <code>tag.class</code>)</li>
+<li>Element <code>textContent</code> / <code>innerHTML</code> / <code>style</code> / <code>classList</code> / <code>setAttribute</code> and friends</li>
+<li><code>setTimeout</code> / <code>setInterval</code>, <code>window.onload</code>, <code>DOMContentLoaded</code>, <code>&lt;body onload&gt;</code></li>
+</ul>
+<p>Not supported:</p>
+<ul>
+<li>External scripts (<code>&lt;script src&gt;</code>), <code>fetch</code> / <code>XMLHttpRequest</code>, click and other events</li>
+<li><code>class</code>, prototypes, <code>new</code> (except <code>Date</code> / <code>Array</code> / <code>Object</code> / <code>Error</code>), regular expressions, destructuring, spread, <code>async</code> / <code>await</code></li>
+<li>The <code>catch</code> clause of <code>try...catch</code> (an error aborts that script)</li>
+<li>Block scoping of <code>let</code> / <code>const</code> (they are function scoped)</li>
+</ul>
+<p><code>VRCbrowserJs</code> inspector:</p>
+<div class="table"><table><thead><tr><th>Field</th><th>Description</th></tr></thead><tbody>
+<tr><td>Show Errors</td><td>Show script errors in the status bar (for debugging your page; off by default, errors always go to the log)</td></tr>
+<tr><td>Max Script Chars</td><td>Maximum length of one <code>&lt;script&gt;</code></td></tr>
+<tr><td>Frame Budget Ms</td><td>Time given to scripts per frame; work is spread over frames</td></tr>
+<tr><td>Max Steps Per Run</td><td>Instruction limit per run; longer scripts are aborted</td></tr>
+<tr><td>Min Render Interval</td><td>Minimum seconds between re-renders caused by scripts</td></tr>
+<tr><td>Min Timer Delay</td><td>Minimum delay for <code>setTimeout</code> / <code>setInterval</code>, seconds</td></tr>
+</tbody></table></div>
+<p>To turn scripts off, clear the <code>Js</code> field on <code>VRCbrowser</code>.</p>
+<h2 id="s7">Limitations</h2>
+<ul>
+<li>Links inside a page cannot be opened (Udon cannot build URLs at runtime). Type a URL or use a bookmark.</li>
+<li>No external stylesheets, inline HTML images or complex layout (floats, flexbox, grid, positioning, tables as grids). Borders, underlines and font families are not drawn. Images inside HTML are shown as <code>[画像: alt]</code>.</li>
+<li>Domains outside VRChat's allowlist only load for players who enabled "Allow Untrusted URLs".</li>
+<li>One load per roughly 5 seconds (VRChat limit).</li>
+<li>Images up to 2048×2048 (VRChat limit).</li>
+</ul>
+<h2 id="s8">License</h2>
+<p><a href="https://github.com/nk4dev/VRCbrowser/blob/main/LICENSE.md">MIT</a></p>
+</main>
+</div>
+</body>
+</html>
