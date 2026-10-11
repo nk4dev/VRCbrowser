@@ -11,7 +11,7 @@ An in-world page viewer for VRChat worlds. Enter a URL and it shows text, Markdo
 - The current URL is synced to all players
 - Back / Home / Reload buttons and a "frequently used sites" menu (up to 8 entries)
 - A small JavaScript runtime for inline `<script>` elements (see below)
-- Two UdonSharp scripts and one prefab, nothing else
+- Two UdonSharp scripts, one prefab and a custom inspector, nothing else
 
 ## Requirements
 
@@ -35,13 +35,16 @@ Download `VRCbrowser-<version>.unitypackage` from [Releases](https://github.com/
 1. Place `Packages/VRCbrowser/Runtime/Prefabs/VRCbrowser.prefab` in your scene.
 2. Configure the `VRCbrowser` component in the inspector.
 
-| Field | Description |
+| Section | Description |
 |---|---|
-| Home Url | Page opened by the Home button and on start. If empty, the Welcome Page is shown |
-| Bookmark Urls / Bookmark Labels | URLs and labels for the menu (fill from the top, up to 8) |
-| Welcome Page | Text (Markdown) shown when no URL is set |
-| Image Max Size | Maximum display size for images |
-| Appearance / Limits | Font size, padding, and limits on lines and HTML size |
+| Pages | **Home Url**: page opened by the Home button and on start. If empty, the Welcome Page is shown. **Welcome Page**: text (Markdown) shown when no URL is set |
+| Bookmarks | Sites for the "frequently used sites" menu, up to 8. Each row has a label and a URL; use **Add Bookmark**, ▲ / ▼ and ✕ to add, reorder and remove. If the label is empty the URL is shown |
+| Scripts | The `JsEngine` that runs inline scripts (see below) |
+| Appearance | Maximum image size, font size, padding and plain text color |
+| Limits | Limits on lines, block length and HTML size |
+| UI References | Objects inside the prefab. Only change these if you rebuild its UI |
+
+The prefab ships without bookmarks, and the menu button stays hidden until you add one.
 
 The button labels and the default Welcome Page are in Japanese; edit the prefab to change them.
 
@@ -102,7 +105,7 @@ VRChat ワールド用のインワールド・ページビューアです。URL 
 - 表示中の URL を全員に同期
 - 戻る / ホーム / 更新ボタン、「よく使うサイト」メニュー(最大 8 件)
 - ページ内の `<script>` を実行する簡易 JavaScript ランタイム(下記)
-- UdonSharp スクリプト 2 本とプレハブ 1 つだけで完結
+- UdonSharp スクリプト 2 本、プレハブ 1 つ、専用インスペクターだけで完結
 
 ### 必要環境
 
@@ -126,13 +129,16 @@ VRChat ワールド用のインワールド・ページビューアです。URL 
 1. `Packages/VRCbrowser/Runtime/Prefabs/VRCbrowser.prefab` をシーンに置きます。
 2. `VRCbrowser` コンポーネントのインスペクターで設定します。
 
-| 項目 | 内容 |
+| セクション | 内容 |
 |---|---|
-| Home Url | ホームボタンと起動時に開くページ。空なら Welcome Page を表示 |
-| Bookmark Urls / Bookmark Labels | 「よく使うサイト」メニューの URL と表示名(上から詰めて最大 8 件) |
-| Welcome Page | URL 未指定のときに表示する文章(Markdown) |
-| Image Max Size | 画像表示の最大サイズ |
-| Appearance / Limits | 文字サイズ、余白、読み込む行数や HTML の上限 |
+| Pages | **Home Url**:ホームボタンと起動時に開くページ。空なら Welcome Page を表示。**Welcome Page**:URL 未指定のときに表示する文章(Markdown) |
+| Bookmarks | 「よく使うサイト」メニューに並べるサイト(最大 8 件)。1 件ごとに表示名と URL を入力し、**Add Bookmark**、▲ / ▼、✕ で追加・並べ替え・削除します。表示名が空なら URL を表示 |
+| Scripts | ページ内のスクリプトを実行する `JsEngine`(下記) |
+| Appearance | 画像の最大サイズ、文字サイズ、余白、プレーンテキストの文字色 |
+| Limits | 読み込む行数、ブロックの長さ、HTML サイズの上限 |
+| UI References | プレハブ内のオブジェクトへの参照。UI を作り直す場合だけ変更します |
+
+プレハブにブックマークは入っていません。1 件以上追加するまで、メニューのボタンは表示されません。
 
 ### JavaScript
 
