@@ -19,7 +19,7 @@ using VRC.Udon.Common.Interfaces;
 [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class VRCbrowser : UdonSharpBehaviour
 {
-    [Header("UI")]
+    // UI
     [SerializeField] private VRCUrlInputField urlInput = null;
     [SerializeField] private Text statusText = null;
     [SerializeField] private ScrollRect scrollRect = null;
@@ -30,35 +30,35 @@ public class VRCbrowser : UdonSharpBehaviour
     [SerializeField] private RawImage imageView = null;
     [SerializeField] private Vector2 imageMaxSize = new Vector2(1500f, 800f);
 
-    [Header("Pages")]
+    // Pages
     [SerializeField] private VRCUrl homeUrl = VRCUrl.Empty;
     [SerializeField, TextArea(5, 20)] private string welcomePage = "";
 
-    [Header("Bookmarks")]
-    [Tooltip("Sites listed in the menu, filled from the top (up to 8). Leave empty to hide the menu.")]
+    // Bookmarks
+    // Sites listed in the menu, filled from the top (up to 8). Leave empty to hide the menu.
     [SerializeField] private VRCUrl[] bookmarkUrls = null;
-    [Tooltip("Menu label for the bookmark at the same index. If empty, the URL is shown.")]
+    // Menu label for the bookmark at the same index. If empty, the URL is shown.
     [SerializeField] private string[] bookmarkLabels = null;
 
-    [Header("Bookmark Menu UI")]
+    // Bookmark Menu UI
     [SerializeField] private GameObject[] bookmarkButtons = null;
     [SerializeField] private Text[] bookmarkButtonLabels = null;
     [SerializeField] private GameObject menuButton = null; // opens the list of frequently used sites
     [SerializeField] private GameObject menuPanel = null;
     [SerializeField] private float menuRowHeight = 58f;
 
-    [Header("Appearance")]
+    // Appearance
     [SerializeField] private int baseFontSize = 30; // UI units for a 16px CSS font; must match the block Text components
     [SerializeField] private float sidePadding = 16f;
     [SerializeField] private Color plainTextColor = new Color(0.90f, 0.92f, 0.95f);
 
-    [Header("Limits")]
+    // Limits
     [SerializeField] private int maxLines = 1500;
     [SerializeField] private int maxCharsPerBlock = 2500;
     [SerializeField] private int maxHtmlChars = 60000;
     [SerializeField] private int maxHtmlTags = 3000;
 
-    [Header("Scripts")]
+    // Scripts
     [SerializeField] private VRCbrowserJs js = null; // optional: runs inline <script> elements; leave empty to ignore scripts
 
     [UdonSynced] private VRCUrl syncedUrl = VRCUrl.Empty;

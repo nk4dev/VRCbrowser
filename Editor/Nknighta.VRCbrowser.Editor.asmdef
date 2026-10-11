@@ -1,0 +1,21 @@
+{
+    "name": "Nknighta.VRCbrowser.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Nknighta.VRCbrowser",
+        "UdonSharp.Runtime",
+        "UdonSharp.Editor",
+        "VRC.Udon"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
