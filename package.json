@@ -11,6 +11,7 @@
   "license": "MIT",
   "url": "https://github.com/nk4dev/VRCbrowser/releases/download/v0.1.1/me.nknighta.libs.vrcbrowser-0.1.1.zip",
   "changelogUrl": "https://github.com/nk4dev/VRCbrowser/releases",
+  "documentationUrl": "https://apps.nknighta.me/VRCbrowser/docs/",
   "vpmDependencies": {
     "com.vrchat.worlds": ">=3.5.0"
   }

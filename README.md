@@ -2,7 +2,7 @@
 
 An in-world page viewer for VRChat worlds. Enter a URL and it shows text, Markdown, simple HTML or an image on a canvas. The current page is synced to everyone in the instance.
 
-[日本語](#日本語)
+[Documentation](https://apps.nknighta.me/VRCbrowser/docs/en.html) · [Add to VCC](https://apps.nknighta.me/VRCbrowser/install.html) · [日本語](#日本語)
 
 ## Features
 
@@ -116,6 +116,8 @@ To turn scripts off, clear the `Js` field on `VRCbrowser`.
 ## 日本語
 
 VRChat ワールド用のインワールド・ページビューアです。URL を入力すると、テキスト / Markdown / 簡単な HTML / 画像をキャンバスに表示します。表示中のページはインスタンス内の全員に同期されます。
+
+[ドキュメント](https://apps.nknighta.me/VRCbrowser/docs/) · [VCC に追加](https://apps.nknighta.me/VRCbrowser/install.html)
 
 ### 特長
 
