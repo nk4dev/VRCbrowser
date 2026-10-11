@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.1
 
 - Fixed: a Home Url typed on a prefab instance in the scene was not saved.
 - `<frameset>` pages are shown as one document. Frames load from the new Frame Urls list, the bookmarks or the Home Url.
