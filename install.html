@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VRCbrowser を VCC に追加</title>
+<meta name="description" content="VRCbrowser を VRChat Creator Companion / ALCOM にワンクリックで追加します。">
+<style>
+:root {
+  --bg: #f6f7f9; --card: #ffffff; --ink: #1b1f24; --muted: #5b6470; --line: #dfe3e8;
+  --accent: #2463eb; --accent-ink: #ffffff; --code: #eef1f5;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14161a; --card: #1d2026; --ink: #e8eaed; --muted: #9aa3ae; --line: #2e333b; --accent: #5b8cff; --accent-ink: #0d1117; --code: #262a31; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.7 system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif; }
+main { max-width: 640px; margin: 0 auto; padding: 48px 16px 64px; }
+h1 { font-size: 28px; line-height: 1.3; margin: 0 0 8px; }
+.lead { color: var(--muted); margin: 0 0 28px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+h2 { font-size: 17px; margin: 0 0 12px; }
+.button { display: block; text-align: center; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 18px; text-decoration: none; padding: 14px 20px; border-radius: 10px; }
+.button:hover { filter: brightness(1.08); }
+.button:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.hint { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+code.url { flex: 1 1 260px; min-width: 0; background: var(--code); border-radius: 8px; padding: 10px 12px; font: 13px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; overflow-wrap: anywhere; }
+button { flex: 0 0 auto; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 0 16px; min-height: 42px; font: inherit; font-size: 14px; cursor: pointer; }
+button:hover { border-color: var(--accent); }
+ol { margin: 12px 0 0; padding-left: 22px; }
+li { margin: 4px 0; }
+footer { color: var(--muted); font-size: 14px; text-align: center; margin-top: 28px; }
+a { color: var(--accent); }
+[lang="en"] { color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>VRCbrowser を VCC に追加</h1>
+  <p class="lead">VRChat ワールド用のインワールド・ページビューアです。<span lang="en">Add the VRCbrowser package listing to VCC or ALCOM.</span></p>
+
+  <section class="card">
+    <h2>ワンクリックで追加</h2>
+    <a class="button" id="add" href="vcc://vpm/addRepo?url=https%3A%2F%2Fraw.githubusercontent.com%2Fnk4dev%2FVRCbrowser%2Fmain%2Findex.json">VCC / ALCOM に追加</a>
+    <p class="hint">VRChat Creator Companion または ALCOM が開き、リポジトリの追加を確認する画面が出ます。<span lang="en">Opens VCC or ALCOM and asks to add the repository.</span></p>
+  </section>
+
+  <section class="card">
+    <h2>開かない場合(手動で追加)</h2>
+    <div class="row">
+      <code class="url" id="url">https://raw.githubusercontent.com/nk4dev/VRCbrowser/main/index.json</code>
+      <button type="button" id="copy">コピー</button>
+    </div>
+    <ol>
+      <li>VCC の Settings → Packages → Add Repository を開きます(ALCOM は「パッケージ」→「リポジトリを追加」)。</li>
+      <li>上の URL を貼り付けて追加します。</li>
+      <li>プロジェクトの管理画面で <b>VRCbrowser</b> を追加します。</li>
+    </ol>
+  </section>
+
+  <footer>
+    <a href="https://github.com/nk4dev/VRCbrowser">GitHub</a> ・ <a href="https://github.com/nk4dev/VRCbrowser/releases">Releases</a>
+  </footer>
+</main>
+<script>
+(function () {
+  var button = document.getElementById("copy");
+  var url = document.getElementById("url").textContent;
+  button.addEventListener("click", function () {
+    function done() { button.textContent = "コピーしました"; setTimeout(function () { button.textContent = "コピー"; }, 2000); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done);
+    else {
+      var range = document.createRange();
+      range.selectNodeContents(document.getElementById("url"));
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand("copy");
+      done();
+    }
+  });
+})();
+</script>
+</body>
+</html>
